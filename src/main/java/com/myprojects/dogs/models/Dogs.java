@@ -25,6 +25,9 @@ public class Dogs implements Serializable {
     @OneToMany(mappedBy ="dog", cascade = CascadeType.ALL)
     private List<Dog_Customer> dogCustomers;
 
+    @ManyToOne
+    @JoinColumn(name="employee_id" ,referencedColumnName = "id")
+    private Employee employee;
     public Dogs() {
     }
 
@@ -67,6 +70,14 @@ public class Dogs implements Serializable {
         this.breed = breed;
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
     @Override
     public String toString() {
         return "Dogs{" +
@@ -74,7 +85,8 @@ public class Dogs implements Serializable {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", breed='" + breed + '\'' +
-                ", dogOwner=" + dogCustomers +
+                ", dogCustomers=" + dogCustomers +
+                ", employee=" + employee +
                 '}';
     }
 }

@@ -39,8 +39,7 @@ public class DogController {
     @GetMapping("/dogs/{id}")
     public Dogs getDogByID(@PathVariable Integer id){
         try {
-           Dogs dogFound= service.getDogByID(id);
-            return dogFound;
+            return service.getDogByID(id);
         } catch (ResourceNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -99,18 +98,18 @@ public class DogController {
         else return ResponseEntity.status(400).body(null);
 
     }
-    @Operation(summary = "Delete a dog entry")
-    @DeleteMapping("/dogs/{id}")
-    public ResponseEntity<?>deleteDogEntry(@PathVariable int id) throws ResourceNotFoundException {
-
-            Dogs deleted = service.deleteDog(id);
-            if(deleted!=null) {
-                return ResponseEntity.status(200).body(deleted);
-            }
-        else {
-               throw new ResourceNotFoundException("Dog",id);
-
-            }
-
-    }
+//    @Operation(summary = "Delete a dog entry")
+//    @DeleteMapping("/dogs/{id}")
+//    public ResponseEntity<?>deleteDogEntry(@PathVariable int id) throws ResourceNotFoundException {
+//
+//            Dogs deleted = service.deleteDog(id);
+//            if(deleted!=null) {
+//                return ResponseEntity.status(200).body(deleted);
+//            }
+//        else {
+//               throw new ResourceNotFoundException("Dog",id);
+//
+//            }
+//
+//    }
 }
