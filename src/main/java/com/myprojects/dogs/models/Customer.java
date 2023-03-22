@@ -35,11 +35,11 @@ public class Customer implements Serializable {
         this.mobile = mobile;
     }
 
-    public void setOwnerId(Integer id) {
+    public void setCustomerId(Integer id) {
         this.id = id;
     }
 
-    public Integer getOwnerID() {
+    public Integer getCustomerID() {
         return id;
     }
 

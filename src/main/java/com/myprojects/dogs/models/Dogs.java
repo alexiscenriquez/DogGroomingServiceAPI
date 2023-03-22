@@ -16,7 +16,8 @@ public class Dogs implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id ;
-    @NotBlank
+    @NotBlank(message = "Name Cannot be Empty")
+    @Column(nullable = false)
     @Schema(required=true)
     private String name;
     private Integer age;

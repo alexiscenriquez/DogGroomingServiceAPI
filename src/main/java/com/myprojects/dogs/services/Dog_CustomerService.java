@@ -28,6 +28,15 @@ public class Dog_CustomerService {
         return repo.getDogsByCustomer(id);
     }
 
+    public Dog_Customer createCustomerDog( Dog_Customer dc) {
+        if(dc==null){
+            return null;
+        }
+      dc.setId(null);
+
+        return repo.save(dc);
+    }
+
     public List<Dog_Customer> getAllCustomersWDogs(){
         return repo.findAll();
     }

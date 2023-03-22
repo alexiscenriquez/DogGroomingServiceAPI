@@ -1,6 +1,7 @@
 package com.myprojects.dogs.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 @Entity
@@ -9,11 +10,13 @@ public class Dog_Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotNull(message = "Dog id cannot be null")
     @ManyToOne
-            @JoinColumn(name="dog_id",referencedColumnName = "id")
+            @JoinColumn(name="dog_id",referencedColumnName = "id",nullable = false)
     Dogs dog;
+    @NotNull(message = "Customer id cannot be null")
     @ManyToOne
-    @JoinColumn(name = "customer_id",referencedColumnName = "id")
+    @JoinColumn(name = "customer_id",referencedColumnName = "id",nullable = false)
     Customer customer;
 
     public Dog_Customer() {

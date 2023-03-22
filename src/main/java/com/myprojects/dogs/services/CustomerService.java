@@ -25,4 +25,12 @@ public class CustomerService {
         }
         return found.get();
     }
+
+    public Customer addCustomer(Customer cust){
+        if(cust==null){
+            return null;
+        }
+        cust.setCustomerId(null);
+        return repo.save(cust);
+    }
 }
